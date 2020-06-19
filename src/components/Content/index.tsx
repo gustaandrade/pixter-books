@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 //@ts-ignore
 import { mIpsum } from "mipsum";
 
@@ -49,7 +50,9 @@ const Content: React.FC<ContentProps> = props => {
         </BooksArea>
       )}
 
-      <ActionButton>SEE MORE</ActionButton>
+      <Link to="/books">
+        <ActionButton>SEE MORE</ActionButton>
+      </Link>
     </Container>
   );
 };

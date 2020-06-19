@@ -16,8 +16,6 @@ export const TitleArea = styled.div`
   align-items: center;
 
   width: 80%;
-
-  padding-bottom: 20px;
 `;
 
 export const BooksArea = styled.div`
@@ -28,6 +26,8 @@ export const BooksArea = styled.div`
   flex-wrap: wrap;
 
   width: 80%;
+
+  padding: 50px 0;
 `;
 
 export const Title = styled.p`

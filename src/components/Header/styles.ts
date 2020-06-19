@@ -31,13 +31,18 @@ export const TabsArea = styled.div`
   width: 30%;
 
   padding-right: 75px;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
 `;
 
 export const Logo = styled.img`
   width: 125px;
 `;
 
-export const Tab = styled.a`
+export const Tab = styled.span`
   font-family: Merriweather Sans;
   font-weight: 800;
 
