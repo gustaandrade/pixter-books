@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 //@ts-ignore
 import { mIpsum } from "mipsum";
+
+import Loading from "../Loading";
+import Book from "../Book";
 
 import {
   Container,
@@ -11,12 +15,22 @@ import {
   ActionButton
 } from "./styles";
 
-const Content: React.FC = () => {
-  const mussumIpsum = mIpsum({
-    pNum: 1,
-    pQuotes: 2,
-    resultType: "text"
-  });
+import { loadBooks, setLoading } from "../../stores/actions";
+import { StoreActions } from "../../stores/actions/types";
+import { StoreState } from "../../stores/reducers/types";
+import { ContentProps } from "./types";
+
+const mussumIpsum = mIpsum({
+  pNum: 1,
+  pQuotes: 2,
+  resultType: "text"
+});
+
+const Content: React.FC<ContentProps> = props => {
+  useEffect(() => {
+    props.setLoading();
+    props.loadBooks();
+  }, []);
 
   return (
     <Container>
@@ -25,11 +39,34 @@ const Content: React.FC = () => {
         <Subtitle>{mussumIpsum}</Subtitle>
       </TitleArea>
 
-      <BooksArea></BooksArea>
+      {props.loading && <Loading />}
+
+      {!props.loading && (
+        <BooksArea>
+          {props.books.map(b => (
+            <Book
+              key={b.id}
+              title={b.title}
+              coverUrl={b.images.smallThumbnail}
+              link={b.link}
+            />
+          ))}
+        </BooksArea>
+      )}
 
       <ActionButton>SEE MORE</ActionButton>
     </Container>
   );
 };
 
-export default Content;
+const mapStateToProps = (state: StoreState): StoreState => ({
+  books: state.books,
+  loading: state.loading
+});
+
+const mapDispatchToProps = (dispatch: (dispatch: StoreActions) => void) => ({
+  loadBooks: () => dispatch(loadBooks()),
+  setLoading: () => dispatch(setLoading())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Content);

@@ -1,11 +1,15 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, BookCover, BookCoverImg } from "./styles";
 
-const Book: React.FC = () => {
+import { BookProps } from "./types";
+
+const Book: React.FC<BookProps> = props => {
   return (
     <Container>
-      <p>book</p>
+      <BookCover href={props.link}>
+        <BookCoverImg src={props.coverUrl} alt={props.title} />
+      </BookCover>
     </Container>
   );
 };

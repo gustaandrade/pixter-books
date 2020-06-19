@@ -16,14 +16,16 @@ export const TitleArea = styled.div`
   align-items: center;
 
   width: 80%;
+
+  padding-bottom: 20px;
 `;
 
 export const BooksArea = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-
-  height: 400px;
+  justify-content: center;
+  flex-wrap: wrap;
 
   width: 80%;
 `;

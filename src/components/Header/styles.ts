@@ -13,8 +13,10 @@ export const Container = styled.div`
 
 export const LogoArea = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 
-  width: 60%;
+  width: 70%;
 
   padding-left: 75px;
 `;
@@ -22,9 +24,9 @@ export const LogoArea = styled.div`
 export const TabsArea = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  width: 40%;
+  width: 30%;
 
   padding-right: 75px;
 `;
