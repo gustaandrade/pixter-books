@@ -18,9 +18,14 @@ export const LogoArea = styled.div`
   flex-direction: row;
   justify-content: flex-start;
 
-  width: 70%;
+  width: 50%;
 
-  padding-left: 75px;
+  padding-left: 25px;
+
+  @media only screen and (min-width: 1012px) {
+    width: 70%;
+    padding-left: 75px;
+  }
 `;
 
 export const TabsArea = styled.div`
@@ -28,13 +33,18 @@ export const TabsArea = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  width: 30%;
+  width: 50%;
 
-  padding-right: 75px;
+  padding-right: 25px;
 
   a {
     color: black;
     text-decoration: none;
+  }
+
+  @media only screen and (min-width: 1012px) {
+    width: 30%;
+    padding-right: 75px;
   }
 `;
 

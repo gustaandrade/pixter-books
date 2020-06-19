@@ -3,8 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 
-  padding: 50px 100px;
+  padding: 10px 20px;
+
+  @media only screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+    padding: 50px 100px;
+  }
 `;
 
 export const ImageArea = styled.div`
@@ -13,9 +19,14 @@ export const ImageArea = styled.div`
   align-items: flex-end;
   justify-content: center;
 
-  width: 40%;
+  width: 100%;
 
-  padding: 0 50px;
+  padding: 0 10px;
+
+  @media only screen and (min-width: 768px) {
+    width: 40%;
+    padding: 0 50px;
+  }
 `;
 
 export const SocialArea = styled.div`
@@ -24,9 +35,13 @@ export const SocialArea = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 40%;
+  width: 100%;
 
   padding: 10px 0;
+
+  @media only screen and (min-width: 768px) {
+    width: 40%;
+  }
 `;
 
 export const DetailsArea = styled.div`
@@ -35,7 +50,11 @@ export const DetailsArea = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 
-  width: 60%;
+  width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    width: 60%;
+  }
 `;
 
 export const TitleArea = styled.div`
@@ -71,9 +90,14 @@ export const ButtonsArea = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 50%;
+  width: 100%;
 
-  padding: 50px 0;
+  padding: 10px 0;
+
+  @media only screen and (min-width: 768px) {
+    padding: 50px 0;
+    width: 50%;
+  }
 `;
 
 export const Image = styled.img`

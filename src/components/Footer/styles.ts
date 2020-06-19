@@ -24,9 +24,13 @@ export const InputArea = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  width: 45%;
+  width: 80%;
 
   padding: 20px 0 10px 0;
+
+  @media only screen and (min-width: 768px) {
+    width: 45%;
+  }
 `;
 
 export const LinksArea = styled.div`
@@ -43,18 +47,36 @@ export const LocationsArea = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 
   width: 80%;
+
+  @media only screen and (min-width: 1012px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Location = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
-  width: 20%;
+  width: 100%;
 
   line-height: 1pt;
+
+  padding: 15px 0;
+
+  @media only screen and (min-width: 1012px) {
+    align-items: flex-start !important;
+    width: 20%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    align-items: center;
+    width: 33%;
+  }
 `;
 
 export const Title = styled.p`

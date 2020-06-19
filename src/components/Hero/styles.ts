@@ -5,9 +5,15 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: center;
 
-  min-height: 500px;
+  min-height: 800px;
 
   background-color: #fcdb00;
+
+  padding-right: 75px;
+
+  @media only screen and (min-width: 768px) {
+    min-height: 500px;
+  }
 `;
 
 export const DescriptionArea = styled.div`
@@ -16,7 +22,11 @@ export const DescriptionArea = styled.div`
 
   width: 70%;
 
-  padding: 0 75px;
+  padding: 0 20px;
+
+  @media only screen and (min-width: 1012px) {
+    padding: 0 75px;
+  }
 `;
 
 export const ImageArea = styled.div`
@@ -25,7 +35,11 @@ export const ImageArea = styled.div`
 
   width: 30%;
 
-  padding: 0 75px;
+  padding: 0 25px;
+
+  @media only screen and (min-width: 1012px) {
+    padding: 0 75px;
+  }
 `;
 
 export const IconsArea = styled.div`
@@ -58,6 +72,11 @@ export const Description = styled.p`
 `;
 
 export const Image = styled.img`
-  height: 415px;
-  width: 280px;
+  height: 205px;
+  width: 140px;
+
+  @media only screen and (min-width: 768px) {
+    height: 415px;
+    width: 280px;
+  }
 `;
