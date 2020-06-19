@@ -27,7 +27,7 @@ export const ContentArea = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 70%;
+  width: 60%;
 `;
 
 export const BooksArea = styled.div`
@@ -36,6 +36,8 @@ export const BooksArea = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  padding: 30px 0;
 `;
 
 export const FilterContainer = styled.div`

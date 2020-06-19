@@ -1,27 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
 
-import Loading from "../../components/Loading";
 import BookList from "../../components/BookList";
 
 import { Container } from "./styles";
 
-import { StoreState } from "../../stores/reducers/types";
-import { BooksProps } from "./types";
-
-const Books: React.FC<BooksProps> = props => {
+const Books: React.FC = () => {
   return (
     <Container>
-      {props.loading && <Loading />}
-      {!props.loading && <BookList />}
+      <BookList />
     </Container>
   );
 };
 
-const mapStateToProps = (state: StoreState) => ({
-  loading: state.loading
-});
-
-const mapDispatchToProps = () => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Books);
+export default Books;
