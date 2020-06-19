@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 import { Container, LogoArea, TabsArea, Logo, Tab } from "./styles";
 
@@ -13,13 +13,13 @@ const Header: React.FC = () => {
       </LogoArea>
 
       <TabsArea>
-        <Link to="/books">
+        <Link to="#content">
           <Tab>Books</Tab>
         </Link>
-        <Link to="/">
+        <Link to="#footer">
           <Tab>Newsletter</Tab>
         </Link>
-        <Link to="/detail">
+        <Link to="#footer">
           <Tab>Address</Tab>
         </Link>
       </TabsArea>

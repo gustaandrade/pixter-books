@@ -16,19 +16,19 @@ import {
 
 import TabletImg from "../../assets/tablet.png";
 
+const shortMussumIpsum = mIpsum({
+  pNum: 1,
+  pQuotes: 1,
+  resultType: "text"
+});
+
+const longMussumIpsum = mIpsum({
+  pNum: 1,
+  pQuotes: 4,
+  resultType: "text"
+});
+
 const Hero: React.FC = () => {
-  const shortMussumIpsum = mIpsum({
-    pNum: 1,
-    pQuotes: 1,
-    resultType: "text"
-  });
-
-  const longMussumIpsum = mIpsum({
-    pNum: 1,
-    pQuotes: 4,
-    resultType: "text"
-  });
-
   return (
     <Container>
       <DescriptionArea>

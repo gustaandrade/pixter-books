@@ -23,15 +23,15 @@ import {
   SocialLink
 } from "./styles";
 
-const Footer: React.FC = () => {
-  const mussumIpsum = mIpsum({
-    pNum: 1,
-    pQuotes: 2,
-    resultType: "text"
-  });
+const mussumIpsum = mIpsum({
+  pNum: 1,
+  pQuotes: 2,
+  resultType: "text"
+});
 
+const Footer: React.FC = () => {
   return (
-    <Container>
+    <Container id="footer">
       <TitleArea>
         <Title>Keep in touch with us</Title>
         <Subtitle>{mussumIpsum}</Subtitle>
