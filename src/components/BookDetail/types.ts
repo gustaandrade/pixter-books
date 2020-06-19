@@ -1,7 +1,5 @@
 import { Book } from "../../types";
 
-export interface StoreState {
-  books: Book[];
-  loading: boolean;
+export interface BookDetailProps {
   selectedBook: Book | null;
 }

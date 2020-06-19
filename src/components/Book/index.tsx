@@ -1,17 +1,35 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { Container, BookCover, BookCoverImg } from "./styles";
+import { Container, BookCoverImg } from "./styles";
 
 import { BookProps } from "./types";
+import { Book } from "../../types";
+import { selectBook } from "../../stores/actions";
+import { StoreActions } from "../../stores/actions/types";
 
-const Book: React.FC<BookProps> = props => {
+const SingleBook: React.FC<BookProps> = props => {
+  function selectCurrentBook() {
+    props.selectBook(props.book);
+  }
+
   return (
     <Container>
-      <BookCover href={props.link}>
-        <BookCoverImg src={props.coverUrl} alt={props.title} />
-      </BookCover>
+      <Link to="/detail" onClick={() => selectCurrentBook()}>
+        <BookCoverImg
+          src={props.book.images.smallThumbnail}
+          alt={props.book.title}
+        />
+      </Link>
     </Container>
   );
 };
 
-export default Book;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch: (dispatch: StoreActions) => void) => ({
+  selectBook: (book: Book) => dispatch(selectBook(book))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleBook);

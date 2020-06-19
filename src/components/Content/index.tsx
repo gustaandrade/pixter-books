@@ -44,12 +44,7 @@ const Content: React.FC<ContentProps> = props => {
       {!props.loading && (
         <BooksArea>
           {props.books.map(b => (
-            <Book
-              key={b.id}
-              title={b.title}
-              coverUrl={b.images.smallThumbnail}
-              link={b.link}
-            />
+            <Book key={b.id} book={b} />
           ))}
         </BooksArea>
       )}
@@ -59,7 +54,7 @@ const Content: React.FC<ContentProps> = props => {
   );
 };
 
-const mapStateToProps = (state: StoreState): StoreState => ({
+const mapStateToProps = (state: StoreState) => ({
   books: state.books,
   loading: state.loading
 });

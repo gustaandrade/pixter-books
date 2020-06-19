@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         <Link to="/">
           <Tab>Newsletter</Tab>
         </Link>
-        <Link to="/">
+        <Link to="/detail">
           <Tab>Address</Tab>
         </Link>
       </TabsArea>

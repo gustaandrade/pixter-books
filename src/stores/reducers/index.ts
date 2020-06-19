@@ -3,12 +3,11 @@ import { StoreActions, ActionTypes } from "../actions/types";
 
 export const initialState: StoreState = {
   books: [],
-  loading: false
+  loading: false,
+  selectedBook: null
 };
 
 const Reducer = (state = initialState, action: StoreActions): StoreState => {
-  console.log(state.loading);
-
   switch (action.type) {
     case ActionTypes.SAVE_BOOKS:
       return {
@@ -17,10 +16,23 @@ const Reducer = (state = initialState, action: StoreActions): StoreState => {
         loading: false
       };
 
+    case ActionTypes.SAVE_MORE_BOOKS:
+      return {
+        ...state,
+        books: state.books.concat(action.books),
+        loading: false
+      };
+
     case ActionTypes.SET_LOADING:
       return {
         ...state,
         loading: true
+      };
+
+    case ActionTypes.SELECT_BOOK:
+      return {
+        ...state,
+        selectedBook: action.book
       };
 
     default:

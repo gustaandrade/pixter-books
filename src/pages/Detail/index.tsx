@@ -1,17 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 
-import Hero from "../../components/Hero";
-import Content from "../../components/Content";
-import Footer from "../../components/Footer";
+import Loading from "../../components/Loading";
+import BookDetail from "../../components/BookDetail";
 
 import { Container } from "./styles";
 
-const Detail: React.FC = () => {
+import { StoreState } from "../../stores/reducers/types";
+import { DetailProps } from "./types";
+
+const Detail: React.FC<DetailProps> = props => {
   return (
     <Container>
-      <p>detail</p>
+      {props.loading && <Loading />}
+      {!props.loading && <BookDetail />}
     </Container>
   );
 };
 
-export default Detail;
+const mapStateToProps = (state: StoreState) => ({
+  loading: state.loading
+});
+
+const mapDispatchToProps = () => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

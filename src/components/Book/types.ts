@@ -1,5 +1,7 @@
+import { Book } from "../../types";
+
 export interface BookProps {
-  title: string;
-  coverUrl: string;
-  link: string;
+  book: Book;
+
+  selectBook: (book: Book) => void;
 }

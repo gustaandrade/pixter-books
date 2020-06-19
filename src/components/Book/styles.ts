@@ -6,9 +6,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const BookCover = styled.a`
-  min-width: 150px;
-  min-height: 300px;
+export const BookCoverImg = styled.img`
+  min-width: 100px;
+  min-height: 200px;
 `;
-
-export const BookCoverImg = styled.img``;

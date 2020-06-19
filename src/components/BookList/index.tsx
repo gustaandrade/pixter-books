@@ -44,15 +44,7 @@ const BookList: React.FC<BookListProps> = props => {
 
       <ContentArea>
         <BooksArea>
-          {props.books &&
-            props.books.map(b => (
-              <Book
-                key={b.id}
-                title={b.title}
-                coverUrl={b.images.smallThumbnail}
-                link={b.link}
-              />
-            ))}
+          {props.books && props.books.map(b => <Book key={b.id} book={b} />)}
         </BooksArea>
 
         <ActionButton>LOAD MORE</ActionButton>

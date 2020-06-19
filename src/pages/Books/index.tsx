@@ -19,7 +19,7 @@ const Books: React.FC<BooksProps> = props => {
 };
 
 const mapStateToProps = (state: StoreState) => ({
-  books: state.books
+  loading: state.loading
 });
 
 const mapDispatchToProps = () => ({});
