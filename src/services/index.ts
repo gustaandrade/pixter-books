@@ -13,3 +13,10 @@ export const GetBooksApi = async () => {
 
   return json;
 };
+
+export const GetMoreBooksApi = async (index: number) => {
+  const response = await fetch(`${API_URL}&startIndex=${index}`, fetchOptions);
+  const json = await response.json();
+
+  return json;
+};

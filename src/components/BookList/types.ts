@@ -5,5 +5,6 @@ export interface BookListProps {
   loading: boolean;
 
   loadBooks: () => void;
+  loadMoreBooks: (index: number) => void;
   setLoading: () => void;
 }

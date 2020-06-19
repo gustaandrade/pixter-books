@@ -10,8 +10,9 @@ export const saveBooks = (books: Book[]): StoreActions => ({
   books
 });
 
-export const loadMoreBooks = (): StoreActions => ({
-  type: ActionTypes.LOAD_MORE_BOOKS
+export const loadMoreBooks = (index: number): StoreActions => ({
+  type: ActionTypes.LOAD_MORE_BOOKS,
+  index
 });
 
 export const saveMoreBooks = (books: Book[]): StoreActions => ({

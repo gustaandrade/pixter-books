@@ -20,6 +20,7 @@ export interface SaveBooksAction {
 
 export interface LoadMoreBooksAction {
   type: ActionTypes.LOAD_MORE_BOOKS;
+  index: number;
 }
 
 export interface SaveMoreBooksAction {

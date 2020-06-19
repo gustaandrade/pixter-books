@@ -3,14 +3,25 @@ import { Book, Images } from "../types";
 const getImagesFromBook = (data: any): Images => {
   let images: Images;
 
-  images = {
-    smallThumbnail: data.smallThumbnail,
-    thumbnail: data.thumbnail,
-    small: data.small,
-    medium: data.medium,
-    large: data.large,
-    extraLarge: data.extraLarge
-  };
+  if (data) {
+    images = {
+      smallThumbnail: data.smallThumbnail,
+      thumbnail: data.thumbnail,
+      small: data.small,
+      medium: data.medium,
+      large: data.large,
+      extraLarge: data.extraLarge
+    };
+  } else {
+    images = {
+      smallThumbnail: "",
+      thumbnail: "",
+      small: "",
+      medium: "",
+      large: "",
+      extraLarge: ""
+    };
+  }
 
   return images;
 };

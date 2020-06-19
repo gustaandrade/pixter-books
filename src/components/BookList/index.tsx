@@ -15,7 +15,7 @@ import {
   ActionButton
 } from "./styles";
 
-import { loadBooks, setLoading } from "../../stores/actions";
+import { loadBooks, setLoading, loadMoreBooks } from "../../stores/actions";
 import { StoreActions } from "../../stores/actions/types";
 import { StoreState } from "../../stores/reducers/types";
 import { BookListProps } from "./types";
@@ -25,6 +25,11 @@ const BookList: React.FC<BookListProps> = props => {
     props.setLoading();
     props.loadBooks();
   }, []);
+
+  function loadMore() {
+    props.setLoading();
+    props.loadMoreBooks(props.books.length);
+  }
 
   return (
     <Container>
@@ -47,7 +52,7 @@ const BookList: React.FC<BookListProps> = props => {
           {props.books && props.books.map(b => <Book key={b.id} book={b} />)}
         </BooksArea>
 
-        <ActionButton>LOAD MORE</ActionButton>
+        <ActionButton onClick={() => loadMore()}>LOAD MORE</ActionButton>
       </ContentArea>
     </Container>
   );
@@ -60,6 +65,7 @@ const mapStateToProps = (state: StoreState) => ({
 
 const mapDispatchToProps = (dispatch: (dispatch: StoreActions) => void) => ({
   loadBooks: () => dispatch(loadBooks()),
+  loadMoreBooks: (index: number) => dispatch(loadMoreBooks(index)),
   setLoading: () => dispatch(setLoading())
 });
 

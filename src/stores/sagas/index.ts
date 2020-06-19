@@ -1,9 +1,9 @@
 import { put, call, takeLatest, all } from "redux-saga/effects";
 
-import { GetBooksApi } from "../../services";
+import { GetBooksApi, GetMoreBooksApi } from "../../services";
 import { getBooksFromJson } from "../../helpers";
 
-import { ActionTypes } from "../actions/types";
+import { ActionTypes, LoadMoreBooksAction } from "../actions/types";
 
 function* loadBooksSaga() {
   const jsonResponse = yield call(GetBooksApi);
@@ -13,6 +13,17 @@ function* loadBooksSaga() {
   });
 }
 
+function* loadMoreBooksSaga(action: LoadMoreBooksAction) {
+  const jsonResponse = yield call(GetMoreBooksApi, action.index);
+  yield put({
+    type: ActionTypes.SAVE_MORE_BOOKS,
+    books: getBooksFromJson(jsonResponse)
+  });
+}
+
 export default function* rootSaga() {
-  yield all([takeLatest(ActionTypes.LOAD_BOOKS, loadBooksSaga)]);
+  yield all([
+    takeLatest(ActionTypes.LOAD_BOOKS, loadBooksSaga),
+    takeLatest(ActionTypes.LOAD_MORE_BOOKS, loadMoreBooksSaga)
+  ]);
 }
