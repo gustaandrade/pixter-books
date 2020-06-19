@@ -6,9 +6,11 @@ export const Container = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 150px;
+  height: 125px;
 
   background-color: #fcdb00;
+
+  box-shadow: 0 7px 6px -6px #c0c0c0;
 `;
 
 export const LogoArea = styled.div`

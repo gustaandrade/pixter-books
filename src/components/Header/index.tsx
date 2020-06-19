@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Container, LogoArea, TabsArea, Logo, Tab } from "./styles";
 
@@ -12,9 +13,15 @@ const Header: React.FC = () => {
       </LogoArea>
 
       <TabsArea>
-        <Tab>Books</Tab>
-        <Tab>Newsletter</Tab>
-        <Tab>Address</Tab>
+        <Link to="/books">
+          <Tab>Books</Tab>
+        </Link>
+        <Link to="/">
+          <Tab>Newsletter</Tab>
+        </Link>
+        <Link to="/">
+          <Tab>Address</Tab>
+        </Link>
       </TabsArea>
     </Container>
   );

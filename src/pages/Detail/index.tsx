@@ -6,14 +6,12 @@ import Footer from "../../components/Footer";
 
 import { Container } from "./styles";
 
-const Home: React.FC = () => {
+const Detail: React.FC = () => {
   return (
     <Container>
-      <Hero />
-      <Content />
-      <Footer />
+      <p>detail</p>
     </Container>
   );
 };
 
-export default Home;
+export default Detail;
