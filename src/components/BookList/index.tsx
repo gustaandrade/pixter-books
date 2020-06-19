@@ -30,7 +30,7 @@ const BookList: React.FC<BookListProps> = props => {
   useEffect(() => {
     props.setLoading();
     props.loadBooks();
-  }, []);
+  }, [props]);
 
   function loadMore() {
     props.setLoading();

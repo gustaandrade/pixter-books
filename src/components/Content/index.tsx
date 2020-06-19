@@ -31,7 +31,7 @@ const Content: React.FC<ContentProps> = props => {
   useEffect(() => {
     props.setLoading();
     props.loadBooks();
-  }, []);
+  }, [props]);
 
   return (
     <Container id="content">
