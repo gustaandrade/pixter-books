@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -31,7 +33,7 @@ const Content: React.FC<ContentProps> = props => {
   useEffect(() => {
     props.setLoading();
     props.loadBooks();
-  }, [props]);
+  }, []);
 
   return (
     <Container id="content">
