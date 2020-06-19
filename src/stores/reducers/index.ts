@@ -4,7 +4,8 @@ import { StoreActions, ActionTypes } from "../actions/types";
 export const initialState: StoreState = {
   books: [],
   loading: false,
-  selectedBook: null
+  selectedBook: null,
+  newsletterPayload: null
 };
 
 const Reducer = (state = initialState, action: StoreActions): StoreState => {
@@ -33,6 +34,12 @@ const Reducer = (state = initialState, action: StoreActions): StoreState => {
       return {
         ...state,
         selectedBook: action.book
+      };
+
+    case ActionTypes.SAVE_NEWSLETTER_PAYLOAD:
+      return {
+        ...state,
+        newsletterPayload: action.newsletterPayload
       };
 
     default:

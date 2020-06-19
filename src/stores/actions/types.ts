@@ -1,4 +1,4 @@
-import { Book } from "../../types";
+import { Book, NewsletterPayload } from "../../types";
 
 export enum ActionTypes {
   LOAD_BOOKS = "LOAD_BOOKS",
@@ -6,7 +6,8 @@ export enum ActionTypes {
   LOAD_MORE_BOOKS = "LOAD_MORE_BOOKS",
   SAVE_MORE_BOOKS = "SAVE_MORE_BOOKS",
   SET_LOADING = "SET_LOADING",
-  SELECT_BOOK = "SELECT_BOOK"
+  SELECT_BOOK = "SELECT_BOOK",
+  SAVE_NEWSLETTER_PAYLOAD = "SAVE_NEWSLETTER_PAYLOAD"
 }
 
 export interface LoadBooksAction {
@@ -37,10 +38,16 @@ export interface SelectBookAction {
   book: Book;
 }
 
+export interface SaveNewsletterPayloadAction {
+  type: ActionTypes.SAVE_NEWSLETTER_PAYLOAD;
+  newsletterPayload: NewsletterPayload;
+}
+
 export type StoreActions =
   | LoadBooksAction
   | SaveBooksAction
   | LoadMoreBooksAction
   | SaveMoreBooksAction
   | SetLoadingAction
-  | SelectBookAction;
+  | SelectBookAction
+  | SaveNewsletterPayloadAction;

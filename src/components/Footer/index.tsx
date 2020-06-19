@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 import {
   FaFacebookSquare,
   FaTwitterSquare,
@@ -23,13 +24,27 @@ import {
   SocialLink
 } from "./styles";
 
+import { saveNewsletterPayload } from "../../stores/actions";
+import { StoreActions } from "../../stores/actions/types";
+import { NewsletterPayload } from "../../types";
+import { FooterProps } from "./types";
+
 const mussumIpsum = mIpsum({
   pNum: 1,
   pQuotes: 2,
   resultType: "text"
 });
 
-const Footer: React.FC = () => {
+const Footer: React.FC<FooterProps> = props => {
+  const [email, setEmail] = useState<string>();
+
+  function setNewsletterPayload() {
+    props.saveNewsletterPayload({
+      email: email!,
+      site: "pixter books"
+    });
+  }
+
   return (
     <Container id="footer">
       <TitleArea>
@@ -38,8 +53,11 @@ const Footer: React.FC = () => {
       </TitleArea>
 
       <InputArea>
-        <Input placeholder="enter your email to update" />
-        <Submit>SUBMIT</Submit>
+        <Input
+          placeholder="enter your email to update"
+          onChange={e => setEmail(e.target.value)}
+        />
+        <Submit onClick={() => setNewsletterPayload()}>SUBMIT</Submit>
       </InputArea>
 
       <LinksArea>
@@ -97,4 +115,11 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch: (dispatch: StoreActions) => void) => ({
+  saveNewsletterPayload: (newsletterPayload: NewsletterPayload) =>
+    dispatch(saveNewsletterPayload(newsletterPayload))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

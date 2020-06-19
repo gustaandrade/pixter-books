@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import Book from "../Book";
@@ -21,6 +21,12 @@ import { StoreState } from "../../stores/reducers/types";
 import { BookListProps } from "./types";
 
 const BookList: React.FC<BookListProps> = props => {
+  const [keyword, setKeyword] = useState<string>();
+  const [title, setTitle] = useState<string>();
+  const [category, setCategory] = useState<string>();
+  const [year, setYear] = useState<string>();
+  const [author, setAuthor] = useState<string>();
+
   useEffect(() => {
     props.setLoading();
     props.loadBooks();
@@ -31,19 +37,52 @@ const BookList: React.FC<BookListProps> = props => {
     props.loadMoreBooks(props.books.length);
   }
 
+  function filterBooks() {
+    if (keyword && keyword !== "") {
+      props.books.filter(b => b.id.includes(keyword));
+    }
+    if (title && title !== "") {
+      props.books.filter(b => b.title.includes(title));
+    }
+    if (category && category !== "") {
+      props.books.filter(b => b.categories.includes(category));
+    }
+    if (year && year !== "") {
+      props.books.filter(b => b.publishedDate === year);
+    }
+    if (author && author !== "") {
+      props.books.filter(b => b.authors.includes(author));
+    }
+  }
+
   return (
     <Container>
       <FilterArea>
         <FilterContainer>
           <FilterTitle>Filter</FilterTitle>
 
-          <FilterInput placeholder="palavra-passe" />
-          <FilterInput placeholder="título" />
-          <FilterInput placeholder="categoria" />
-          <FilterInput placeholder="ano" />
-          <FilterInput placeholder="autor" />
+          <FilterInput
+            placeholder="palavra-passe"
+            onChange={e => setKeyword(e.target.value)}
+          />
+          <FilterInput
+            placeholder="título"
+            onChange={e => setTitle(e.target.value)}
+          />
+          <FilterInput
+            placeholder="categoria"
+            onChange={e => setCategory(e.target.value)}
+          />
+          <FilterInput
+            placeholder="ano"
+            onChange={e => setYear(e.target.value)}
+          />
+          <FilterInput
+            placeholder="autor"
+            onChange={e => setAuthor(e.target.value)}
+          />
 
-          <FilterButton>SUBMIT</FilterButton>
+          <FilterButton onClick={() => filterBooks()}>SUBMIT</FilterButton>
         </FilterContainer>
       </FilterArea>
 

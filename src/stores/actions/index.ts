@@ -1,5 +1,5 @@
 import { StoreActions, ActionTypes } from "./types";
-import { Book } from "../../types";
+import { Book, NewsletterPayload } from "../../types";
 
 export const loadBooks = (): StoreActions => ({
   type: ActionTypes.LOAD_BOOKS
@@ -27,4 +27,11 @@ export const setLoading = (): StoreActions => ({
 export const selectBook = (book: Book): StoreActions => ({
   type: ActionTypes.SELECT_BOOK,
   book
+});
+
+export const saveNewsletterPayload = (
+  newsletterPayload: NewsletterPayload
+): StoreActions => ({
+  type: ActionTypes.SAVE_NEWSLETTER_PAYLOAD,
+  newsletterPayload
 });

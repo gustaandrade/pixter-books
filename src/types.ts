@@ -21,3 +21,8 @@ export interface Images {
   large: string;
   extraLarge: string;
 }
+
+export interface NewsletterPayload {
+  email: string;
+  site: string;
+}
